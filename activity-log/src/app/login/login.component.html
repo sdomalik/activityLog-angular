@@ -2,6 +2,7 @@
   <mat-card-header >
     <mat-card-title>Activity Log</mat-card-title>
   </mat-card-header>
+  <span></span>
   <form class="login-form">
       <mat-form-field class="full-width">
         <input matInput placeholder="Email" [formControl]="emailFormControl">
@@ -12,13 +13,18 @@
           Email is <strong>required</strong>
         </mat-error>
       </mat-form-field>
+  <span></span>
+
       <mat-form-field  class="full-width">
         <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
+  <span></span>
+
     </form>
-    <button mat-button color="primary" class="full-width">LOGIN</button>
-    <button mat-button color="primary" class="full-width">REGISTER</button>
+    <button mat-button color="primary" class="full-width" [routerLink]="['/login/']">LOGIN</button>
+  <span></span>
+    <button mat-button color="primary" class="full-width" [routerLink]="['/register/']">REGISTER</button>
 </mat-card>

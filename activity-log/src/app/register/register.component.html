@@ -1,0 +1,62 @@
+<mat-card class="register-card">
+    <mat-vertical-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+              <button color="primary" mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your email</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="secondCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button color="primary" mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup" class="password-form">
+              <ng-template matStepLabel>Fill out your password</ng-template>
+              <mat-form-field>
+                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="thirdCtrl" required>
+                <mat-error *ngIf="thirdFormGroup.hasError('required', 'thirdCtrl')">
+                    Please enter your new password
+                </mat-error>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <mat-form-field>
+                  <input [type]="hide ? 'password' : 'text'" matInput placeholder="Confirm Password" formControlName="fourthCtrl" required [errorStateMatcher]="matcher">
+                  <mat-error *ngIf="thirdFormGroup.hasError('notSame')">
+                      Passwords do not match
+                  </mat-error>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button color="primary" mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          You are now done.
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button color="primary" mat-button >Register</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+</mat-card>

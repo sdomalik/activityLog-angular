@@ -1,1 +1,15 @@
-<app-login></app-login>
+<div class="toolbar-container">
+  <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['']" routerLinkActive="router-link-active" >Login</button>
+        <button mat-menu-item [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</button>
+      </mat-menu>
+      <h1 class="example-app-name">Activity Log</h1>
+  </mat-toolbar>
+</div>
+
+
+
+<router-outlet></router-outlet>
+
