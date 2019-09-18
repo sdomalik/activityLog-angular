@@ -1,0 +1,22 @@
+.dashboard-card {
+  top: 100px;
+  max-width: 1000px;
+  display: block;
+  margin: auto;
+}
+.dashboard-card mat-card-header {
+  justify-content: center;
+}
+.stats-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-card span {
+  margin: 10px;
+}
+
+.addActivity-card mat-card-actions{
+  display: flex;
+  justify-content: center;
+}
