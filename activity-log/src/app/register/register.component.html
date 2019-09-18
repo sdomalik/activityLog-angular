@@ -4,7 +4,7 @@
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Fill out your name</ng-template>
             <mat-form-field>
-              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+              <input matInput placeholder="First name" formControlName="firstCtrl" required>
             </mat-form-field>
             <div>
               <button color="primary" mat-button matStepperNext>Next</button>
@@ -15,7 +15,7 @@
           <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Fill out your email</ng-template>
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="secondCtrl" required>
+              <input matInput placeholder="Email" formControlName="secondCtrl" required #userEmail >
             </mat-form-field>
             <div>
               <button mat-button matStepperPrevious>Back</button>
@@ -27,7 +27,7 @@
             <form [formGroup]="thirdFormGroup" class="password-form">
               <ng-template matStepLabel>Fill out your password</ng-template>
               <mat-form-field>
-                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="thirdCtrl" required>
+                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="thirdCtrl" required #userPassword >
                 <mat-error *ngIf="thirdFormGroup.hasError('required', 'thirdCtrl')">
                     Please enter your new password
                 </mat-error>
@@ -55,7 +55,7 @@
           You are now done.
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button color="primary" mat-button >Register</button>
+            <button color="primary" mat-button (click)="authService.register(userEmail.value,userPassword.value)" >Register</button>
           </div>
         </mat-step>
       </mat-vertical-stepper>

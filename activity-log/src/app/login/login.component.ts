@@ -1,23 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-
-
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+
+
+export class LoginComponent{
+
+  hide = true;
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
-  hide = true;
-  constructor() { }
 
-  ngOnInit() {
+  registerInfo = '';
 
-  }
-
+  constructor(
+    public authService: AuthService
+  ) { }
 }

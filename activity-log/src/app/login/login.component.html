@@ -5,7 +5,7 @@
   <span></span>
   <form class="login-form">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Email" [formControl]="emailFormControl">
+        <input matInput placeholder="Email" [formControl]="emailFormControl" #userEmail>
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please enter a valid email address
         </mat-error>
@@ -16,7 +16,7 @@
   <span></span>
 
       <mat-form-field  class="full-width">
-        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" #userPassword >
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -24,7 +24,7 @@
   <span></span>
 
     </form>
-    <button mat-button color="primary" class="full-width" [routerLink]="['/login/']">LOGIN</button>
+    <button mat-button color="primary" class="full-width" (click)="authService.login(userEmail.value,userPassword.value)">LOGIN</button>
   <span></span>
     <button mat-button color="primary" class="full-width" [routerLink]="['/register/']">REGISTER</button>
 </mat-card>

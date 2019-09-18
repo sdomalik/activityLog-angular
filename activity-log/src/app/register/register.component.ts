@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FormControl, FormGroupDirective, NgForm, } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,15 +16,20 @@ export class RegisterComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  registerInfo = '';
 
-  constructor(private _formBuilder: FormBuilder) { }
+
+  constructor(
+    private _formBuilder: FormBuilder,
+    public authService: AuthService
+    ) { }
+
   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
   let pass = group.get('thirdCtrl').value;
   let confirmPass = group.get('fourthCtrl').value;
 
   return pass === confirmPass ? null : { notSame: true }
 }
-
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]

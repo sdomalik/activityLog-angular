@@ -17,6 +17,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    // tslint:disable-next-line: no-shadowed-variable
     return this.authService.authState$.pipe(map(state => {
         if (state !== null) { return true; }
 
