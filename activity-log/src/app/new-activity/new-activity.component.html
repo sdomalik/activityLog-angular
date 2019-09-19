@@ -1,1 +1,11 @@
-<p>new-activity works!</p>
+<mat-card>
+  <mat-card-header>Add new activity</mat-card-header>
+  <mat-form-field>
+      <mat-label>Chose activity</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let exercise of Exercises" [value]="exercises.value">
+          {{exercises.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</mat-card>
