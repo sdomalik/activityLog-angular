@@ -14,6 +14,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewActivityComponent } from './new-activity/new-activity.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewActivityComponent
   ],
   imports: [
     BrowserModule,
