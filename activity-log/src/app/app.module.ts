@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MatCardModule, MatMenuModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule,
-MatStepperModule} from '@angular/material';
+MatStepperModule, MatSelectModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -40,7 +40,8 @@ import { NewActivityComponent } from './new-activity/new-activity.component';
     MatToolbarModule,
     MatStepperModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+.new-activity-card{
+  top: 100px;
+  display: flex;
+  margin: auto;
+  max-width: 1000px;
+  flex-direction: column;
+  align-items: center;
+}
+.form-field{
+ width: 60%;
+}
+
+.new-activity-card div{
+  color: whitesmoke;
+  width: 100%;
+  background-color: #3f51b5;
+  text-align: center;
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+}
+.space{
+  margin: 5px;
+}
