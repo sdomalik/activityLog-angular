@@ -1,10 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { User } from "./shared/services/user";
+import { User } from './shared/services/user';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { auth } from 'firebase/app';
+import { auth, functions } from 'firebase/app';
 import { Observable } from 'rxjs';
+import { Activity } from './shared/services/activity';
 
 
 @Injectable({
@@ -72,6 +73,22 @@ export class AuthService {
       })
     }
 
-    AddActivity(user,form){
+    AddActivity(user, form) {
+      let activity: Activity = {
+        name : form.name,
+        duration : form.duration,
+        date : form.date
+      };
+
+      this.fireStore.collection('activities').doc(user.uid).collection(activity.date).add(activity).then(function() {
+        console.log('Document added');
+      })
+      .catch(error => window.alert(error.message))
     }
+    DeleteActivity(user,activity){
+      return this.fireStore.collection('activities').doc(user.uid).collection(activity.date).doc(activity.id).delete()
+      .then(() => {console.log('Document deleted')})
+      .catch(error => window.alert(error.message))
+    }
+
   }

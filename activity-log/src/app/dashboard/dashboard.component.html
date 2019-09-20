@@ -16,11 +16,7 @@
   <span></span>
   <mat-card class="addActivity-card">
     <mat-card-actions>
-        <button mat-raised-button color="primary" [routerLink]="['/new-activity/']">Add new activity</button>
+        <button mat-raised-button color="primary" [routerLink]="['/new-activity']">Add new activity</button>
       </mat-card-actions>
   </mat-card>
-  <tr *ngFor="let activity of activities | async; let i = index" [attr.data-index]="i">
-    <td>{{i + 1}}</td>
-    <td>{{activity.description}}</td>
- </tr>
 </mat-card>

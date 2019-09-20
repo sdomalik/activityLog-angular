@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-new-activity',
@@ -7,10 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NewActivityComponent implements OnInit {
-  selected = 'Gym workout';
-    constructor() { }
+  userProfile: any;
+  addActivityForm: FormGroup;
+  date: string;
+  user: any;
+
+    constructor(
+      private fb: FormBuilder,
+      public authService: AuthService
+    ) { }
 
   ngOnInit() {
+    this.addActivityForm = this.fb.group({
+      name: ['', [Validators.required]],
+      duration: ['', [Validators.required]],
+      date: this.date
+    });
   }
+
+  AddButtonClick(){
+    this.authService.AddActivity(this.authService.userData, this.addActivityForm.value);
+  }
+
 
 }

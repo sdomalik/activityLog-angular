@@ -1,35 +1,20 @@
 <mat-card class="new-activity-card">
-  <div>
-    <p>Add new activity</p>
-  </div>
+    <div>
+        <p>Add new activity</p>
+    </div>
   <span class="space"></span>
-  <mat-form-field class="form-field">
-    <mat-label>Chose activity</mat-label>
-      <mat-select [(value)]="selected" >
-        <mat-option>None</mat-option>
-        <mat-option value="Gym workout">Gym workout</mat-option>
-        <mat-option value="Running">Running</mat-option>
-        <mat-option value="Cycling">Cycling</mat-option>
-        <mat-option value="Swimming">Swimming</mat-option>
-        <mat-option value="Team play">Team play</mat-option>
-        <mat-option value="Streching">Streching</mat-option>
-        <mat-option value="Boxing">Boxing</mat-option>
-        <mat-option value="Hiking">Hiking</mat-option>
-      </mat-select>
-  </mat-form-field>
-  <mat-form-field class="form-field">
-    <mat-label>Chose date</mat-label>
-    <input matInput type="date" required/>
-  </mat-form-field>
-  <mat-form-field class="form-field">
-    <mat-label>Start time</mat-label>
-    <input matInput type="time" required/>
-  </mat-form-field>
-  <mat-form-field class="form-field">
-    <mat-label>End time</mat-label>
-    <input matInput type="time" required/>
-  </mat-form-field>
-  <button class="form-field" mat-raised-button color="primary" (click)="activityService.addActivity()">Add</button>
+  <form [formGroup]="addActivityForm">
+      <mat-form-field>
+        <input matInput placeholder="Activity name" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Activity duration" name="duration" formControlName="duration" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Activity date" name="date" formControlName="date" required>
+      </mat-form-field>
+  </form>
+  <button class="form-field" mat-raised-button color="primary" (click)="AddButtonClick()" >Add</button>
   <span class="space"></span>
   <button class="form-field" mat-raised-button color="primary" [routerLink]="['/dashboard']" >Cancel</button>
 </mat-card>
