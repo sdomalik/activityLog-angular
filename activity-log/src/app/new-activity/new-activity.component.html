@@ -2,6 +2,7 @@
   <div>
     <p>Add new activity</p>
   </div>
+  <span class="space"></span>
   <mat-form-field class="form-field">
     <mat-label>Chose activity</mat-label>
       <mat-select [(value)]="selected" >
@@ -28,7 +29,7 @@
     <mat-label>End time</mat-label>
     <input matInput type="time" required/>
   </mat-form-field>
-  <button class="form-field" mat-raised-button color="primary">Add</button>
+  <button class="form-field" mat-raised-button color="primary" (click)="activityService.addActivity()">Add</button>
   <span class="space"></span>
   <button class="form-field" mat-raised-button color="primary" [routerLink]="['/dashboard']" >Cancel</button>
 </mat-card>

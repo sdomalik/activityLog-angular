@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class NewActivityComponent implements OnInit {
   selected = 'Gym workout';
-
-  constructor() { }
+    constructor() { }
 
   ngOnInit() {
   }

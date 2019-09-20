@@ -14,7 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'new-activity',
-    component: NewActivityComponent
+    component: NewActivityComponent,
+    canActivate: [AuthGuard]
+
   },
   {
     path: '',
