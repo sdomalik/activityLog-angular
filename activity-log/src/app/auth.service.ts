@@ -4,6 +4,7 @@ import { User } from "./shared/services/user";
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,6 +12,7 @@ import { auth } from 'firebase/app';
 })
 export class AuthService {
   userData: any;
+  readonly authState$: Observable<User | null> = this.fireAuth.authState;
 
   constructor(
     public fireStore: AngularFirestore,
@@ -68,5 +70,8 @@ export class AuthService {
       return userRef.set(userData, {
         merge: true
       })
+    }
+
+    AddActivity(user,form){
     }
   }
