@@ -3,15 +3,15 @@
         <p>Add new activity</p>
     </div>
   <span class="space"></span>
-  <form [formGroup]="addActivityForm">
+  <form [formGroup]="addActivityForm" class="form-box form-field">
       <mat-form-field>
         <input matInput placeholder="Activity name" formControlName="name" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Activity duration" name="duration" formControlName="duration" required>
+        <input matInput placeholder="Activity duration HH:MM:SS" name="duration" pattern="^(0[0-9]|1[0-9]|2[0-3])(:[0-5]\d)(:[0-5]\d)" formControlName="duration" required>
       </mat-form-field>
       <mat-form-field>
-          <input matInput placeholder="Activity date" name="date" formControlName="date" required>
+          <input matInput placeholder="Activity date YYYY/MM/DD" name="date" pattern="\d{4}(/\d{2}){2}" formControlName="date" required>
       </mat-form-field>
   </form>
   <button class="form-field" mat-raised-button color="primary" (click)="AddButtonClick()" >Add</button>

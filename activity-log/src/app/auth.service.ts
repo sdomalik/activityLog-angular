@@ -87,7 +87,9 @@ export class AuthService {
     }
     DeleteActivity(user,activity){
       return this.fireStore.collection('activities').doc(user.uid).collection('Activity').doc(activity.id).delete()
-      .then(() => {console.log('Document deleted')})
+      .then(() => {
+        console.log('Document deleted')
+      })
       .catch(error => window.alert(error.message))
     }
 
