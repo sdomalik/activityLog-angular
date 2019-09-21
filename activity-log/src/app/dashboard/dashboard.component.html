@@ -1,22 +1,24 @@
 <mat-card class="dashboard-card">
-  <mat-card-header>Your activity:</mat-card-header>
-  <span></span>
-  <mat-card class="stats-card">
-      <mat-card-header>Total activity time:</mat-card-header>
-      <mat-card-content>230minut</mat-card-content>
-  </mat-card>
-  <mat-card class="stats-card" >
-      <mat-card-header>Total burnt calories:</mat-card-header>
-      <mat-card-content>230minut</mat-card-content>
-    </mat-card>
-  <mat-card class="stats-card">
-      <mat-card-header>Total covered distance:</mat-card-header>
-      <mat-card-content>230minut</mat-card-content>
-  </mat-card>
-  <span></span>
-  <mat-card class="addActivity-card">
     <mat-card-actions>
-        <button mat-raised-button color="primary" [routerLink]="['/new-activity']">Add new activity</button>
-      </mat-card-actions>
-  </mat-card>
+        <button mat-raised-button  [routerLink]="['/new-activity']">Add new activity</button>
+    </mat-card-actions>
+  <mat-card-header>
+    <h3>
+      Your activities:
+    </h3>
+  </mat-card-header>
+  <span></span>
+  <div class="cards-container">
+    <mat-card *ngFor="let activity of activityList | async" class="activity-card">
+        <mat-card-header>
+          <mat-card-title>Activity: {{ activity.name }}</mat-card-title>
+          <mat-card-subtitle>Activity date: {{  activity.date }}</mat-card-subtitle>
+          <mat-card-subtitle>Activity duration: {{  activity.duration }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" (click)="DeleteButtonClick(activity)" >Delete</button>
+        </mat-card-actions>
+      </mat-card>
+  </div>
+
 </mat-card>

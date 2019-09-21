@@ -80,15 +80,20 @@ export class AuthService {
         date : form.date
       };
 
-      this.fireStore.collection('activities').doc(user.uid).collection(activity.date).add(activity).then(function() {
+      this.fireStore.collection('activities').doc(user.uid).collection('Activity').add(activity).then(function() {
         console.log('Document added');
       })
       .catch(error => window.alert(error.message))
     }
     DeleteActivity(user,activity){
-      return this.fireStore.collection('activities').doc(user.uid).collection(activity.date).doc(activity.id).delete()
+      return this.fireStore.collection('activities').doc(user.uid).collection('Activity').doc(activity.id).delete()
       .then(() => {console.log('Document deleted')})
       .catch(error => window.alert(error.message))
+    }
+
+    GetActivities(user): Observable<any>{
+      return this.fireStore.collection('activities').doc(user.uid).collection('Activity').snapshotChanges();
+
     }
 
   }

@@ -1,27 +1,25 @@
 .dashboard-card {
   top: 100px;
   max-width: 1000px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
   margin: auto;
   background-color: #3f51b5;
   color: whitesmoke;
   font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
 }
-.dashboard-card mat-card-header {
-  justify-content: center;
-}
-.stats-card {
+.cards-container{
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  float: left;
+  flex-wrap: wrap;
+}
+.activity-card{
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-}
-
-.dashboard-card span {
-  margin: 10px;
-}
-
-.addActivity-card mat-card-actions{
-  display: flex;
-  justify-content: center;
-  color: whitesmoke;
+  margin: 5px auto 5px auto;
 }

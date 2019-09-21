@@ -25,6 +25,7 @@ export class NewActivityComponent implements OnInit {
       duration: ['', [Validators.required]],
       date: this.date
     });
+
   }
 
   AddButtonClick(){
